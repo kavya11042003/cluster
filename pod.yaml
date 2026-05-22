@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: pod
+metadata:
+  name: kavya-pod
+spec:
+  containers:
+   - name: kavya-container
+     image: manubolukavya11/ghee
+     ports:
+      - containerPort: 3000
+         
