@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: nginx-deployment
+  labels:
+    first: app
+
+spec:   # Behaviour of Deployment
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: web
+
+  template:
+    metadata:
+      labels:
+        app: web
+
+    spec:   # Behaviour of Pod
+      containers:
+        - name: aditya-container
+          image: nginx
+
+          ports:
+            - containerPort: 80
