@@ -24,4 +24,4 @@ spec:   # Behaviour of Deployment
           image: manubolukavya11/ghee
 
           ports:
-            - containerPort: 5656
+            - containerPort: 3000
