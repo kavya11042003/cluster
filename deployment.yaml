@@ -25,3 +25,20 @@ spec:   # Behaviour of Deployment
 
           ports:
             - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: my-service
+
+spec:
+  selector:
+    app: web
+
+  ports:
+    - protocol: TCP
+      port: 85
+      targetPort: 80
+
+  type: ClusterIP
