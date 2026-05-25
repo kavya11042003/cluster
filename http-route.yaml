@@ -1,0 +1,27 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: ghee-route
+  namespace: default
+spec:
+  parentRefs:
+    - name: bug-gateway
+
+  rules:
+    # BACKEND (API requests)
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /api
+      backendRefs:
+        - name: backend-service
+          port: 80
+
+    # FRONTEND (React UI)
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: frontend-service
+          port: 80
