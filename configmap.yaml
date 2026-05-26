@@ -1,0 +1,13 @@
+organic-ghee:
+  image: ghee:v1.1.1
+  container_name: ghee_container
+
+  ports:
+    - "4000:5656"
+
+  environment:
+    DB_HOST: mongodb
+    DB_PORT: 27017
+    DB_USER: admin
+    APP_NAME: ghee-order-app
+    APP_PORT: 5656
